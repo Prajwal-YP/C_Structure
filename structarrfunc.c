@@ -21,7 +21,8 @@ int main()
 	scanf("%d",&size);
 	
 	emp e[size];
-	emp read();
+	emp read(void);
+	void disp(emp);
 	
 	for(i=0;i<size;i++)
 	{
@@ -42,7 +43,7 @@ int main()
 	return 0;
 }
 
-emp read()
+emp read(void)
 {
 	emp e;
 	printf("\nEnter Employee_Id     : ");
@@ -56,7 +57,7 @@ emp read()
 	return e;
 }
 
-disp(emp e)
+void disp(emp e)
 {
 	printf("\nEmployee_Id      : %d",e.id);
 	printf("\nEmployee_name    : %s",e.name);
