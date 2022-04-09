@@ -1,11 +1,11 @@
 /*
 	Program Name	:	structarrfunc.c
 	Author			:	Prajwal Y P
-	Task			:	Understanding the array of structure function throush employee details .
+	Task			:	Understanding the array of structure function through employee details .
 */
 
 #include<stdio.h>
-
+int i,size;
 struct employee 
 {
 	int id;
@@ -16,14 +16,15 @@ typedef struct employee emp;
 
 int main()
 {
-	int i,size;
+	
 	printf("Enter Employee size : ");
 	scanf("%d",&size);
 	
 	emp e[size];
 	emp read(void);
-	void disp(emp);
+	void disp(emp[]);
 	
+	void *p=e;
 	for(i=0;i<size;i++)
 	{
 		printf("\n\nEnter Employee-%d Details : ",i+1);
@@ -32,12 +33,9 @@ int main()
 	}
 	printf("\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 	
-	for(i=0;i<size;i++)
-	{
-		printf("\n\nEmployee-%d Details : ",i+1);
-		printf("\n~~~~~~~~~~~~~~~~~~~\n");
-		disp(e[i]);
-	}
+	disp(e);
+	
+	
 	
 	printf("\n\n--------------------------------------------------------\n\n");
 	return 0;
@@ -57,9 +55,15 @@ emp read(void)
 	return e;
 }
 
-void disp(emp e)
+void disp(emp e[])
 {
-	printf("\nEmployee_Id      : %d",e.id);
-	printf("\nEmployee_name    : %s",e.name);
-	printf("\nEmployee_salaray : %.2f",e.salary);
+	for(i=0;i<size;i++)
+	{
+		printf("\n\nEmployee-%d Details : ",i+1);
+		printf("\n~~~~~~~~~~~~~~~~~~~\n");
+		printf("\nEmployee_Id      : %d",e[i].id);
+		printf("\nEmployee_name    : %s",e[i].name);
+		printf("\nEmployee_salaray : %.2f",e[i].salary);
+	}
+	
 }
