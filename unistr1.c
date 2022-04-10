@@ -1,5 +1,5 @@
 /*
-	Program Name	:	unistr1.c
+	Program Name		:	unistr1.c
 	Author			:	Prajwal Y p
 	Task			: 	To understand concept of Union-structure
 */
@@ -23,6 +23,8 @@ typedef struct
 			int e,co;
 		}com;
 	}marks;
+	int t;
+	float avg;
 }stu;
 
 
@@ -68,19 +70,22 @@ void read(stu *s,int *c,int n)
 		scanf("%d",&(s+i)->m);
 		if(*(c+i)==1)
 		{
-			printf("\nEnter physics marks\t: ");
+			printf("Enter physics marks\t: ");
 			scanf("%d",&(s+i)->marks.sci.p);
 			printf("Enter chemistry marks\t: ");
 			scanf("%d",&(s+i)->marks.sci.ch);
+			(s+i)->t=(s+i)->m+(s+i)->marks.sci.p+(s+i)->marks.sci.ch;
 		}
 		else
 		{
-			printf("\nEnter economics marks\t: ");
+			printf("Enter economics marks\t: ");
 			scanf("%d",&(s+i)->marks.com.e);
 			printf("Enter commerce marks\t: ");
 			scanf("%d",&(s+i)->marks.com.co);
+			(s+i)->t=(s+i)->m+(s+i)->marks.com.e+(s+i)->marks.com.co;
 		}
-		printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+		(s+i)->avg=(s+i)->t/3.0;
+		printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");	
 	}
 }
 
@@ -106,7 +111,8 @@ void disp(stu *s,int c[],int n)
 			printf("\nStudent economics marks\t: %d",(s+i)->marks.com.e);
 			printf("\nStudent commerce marks\t: %d",(s+i)->marks.com.co);
 		}
-		
+		printf("\nTotal\t\t\t: %d",(s+i)->t);
+		printf("\nAverage\t\t\t: %.2f",(s+i)->avg);
 	}
 	
 }
