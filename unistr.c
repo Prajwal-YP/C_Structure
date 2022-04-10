@@ -1,7 +1,7 @@
 /*
-	Program Name	:	unistr.c
+	Program Name		:	unistr.c
 	Author			:	Prajwal Y p
-	Task			: 	To understand concept of Union
+	Task			: 	To understand concept of Nested Structure-Union
 */
 
 #include<stdio.h>
